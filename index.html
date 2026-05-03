@@ -709,7 +709,7 @@ function exportExcel(){
       const src=ha?(ALLOC[s.id]||s.prefs):s.prefs;
       const hrs=src.reduce((sum,p)=>sum+pH(p),0);
       rows.push([s.name,s.role,s.emp,...src.map(p=>{
-        const base=!p||!p.type?'Off':p.type==='s'?'Starting (4:00am–12:30pm)':p.type==='c'?'Closing (12:30pm–9:30pm)':`Custom ${fmt12(p.s)}–${fmt12(p.e)}`;
+        const base=!p||!p.type?'Off':p.type==='s'?'Starting (4:00am–12:30pm)':p.type==='c'?'Closing (12:00pm–9:30pm)':`Custom ${fmt12(p.s)}–${fmt12(p.e)}`;
         return p&&p.note?`${base} [${p.note}]`:base;
       }),`${hrs}h`]);
     });
